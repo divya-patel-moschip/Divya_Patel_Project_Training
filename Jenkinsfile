@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                        pip install jenkinsapi
+                        pip install -r requirements.txt
                         python3 jenkins_api.py ${job_name}
                     """
                 }
