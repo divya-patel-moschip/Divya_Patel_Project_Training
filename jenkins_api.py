@@ -71,7 +71,7 @@ try:
     # To change the name of the job from old_name to new_name.
     # change_job_name(jenkins, "Run_Serial_Simulator", "Run_Serial_Simulator")
 
-    job_name = sys.argv[0]
+    job_name = sys.argv[1]
     get_all_jobs(jenkins)
     get_last_build_details(jenkins, job_name)
 except ConnectionError as e:
