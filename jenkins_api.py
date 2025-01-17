@@ -45,7 +45,7 @@ def get_no_builds(jenkins_obj):
     job = jenkins_obj.get_job("Run_Serial_Simulator")
     job_builds = list(job.get_build_ids())
     no_builds = len(job_builds)
-    print(f"\t\tNumber of available builds = {no_builds}")
+    print(f"\tNumber of available builds = {no_builds}")
     print("=================================================")
     print()
 
