@@ -35,14 +35,14 @@ def change_job_name(jenkins_obj, job_name, job_new_name):
     print(f"Name changed from {job_name} to {job_new_name}")
     print()
 
-def get_no_builds(jenkins_obj):
+def get_no_builds(jenkins_obj, job_name):
     """
     This function will print the number of builds that we did for the particular job.
     :param jenkins_obj:
     :return:
     """
     print("=================================================")
-    job = jenkins_obj.get_job("Run_Serial_Simulator")
+    job = jenkins_obj.get_job(job_name)
     job_builds = list(job.get_build_ids())
     no_builds = len(job_builds)
     print(f"\tNumber of available builds = {no_builds}")
@@ -65,13 +65,14 @@ def get_last_build_details(jenkins_obj:Jenkins, job_name):
 try:
     jenkins = Jenkins(JENKINS_URL, JENKINS_USER, JENKINS_PASS)
 
+    job_name = sys.argv[1]
+
     get_all_jobs(jenkins)
-    get_no_builds(jenkins)
+    get_no_builds(jenkins, job_name)
 
     # To change the name of the job from old_name to new_name.
     # change_job_name(jenkins, "Run_Serial_Simulator", "Run_Serial_Simulator")
 
-    job_name = sys.argv[1]
     get_all_jobs(jenkins)
     get_last_build_details(jenkins, job_name)
 except ConnectionError as e:
