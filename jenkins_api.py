@@ -2,6 +2,7 @@
 module :- pip install jenkinsapi
 use :- Used to directly interact with the jenkins from our local system using python script.
 """
+import argparse
 import sys
 from jenkinsapi.jenkins import Jenkins
 
@@ -65,7 +66,11 @@ def get_last_build_details(jenkins_obj:Jenkins, job_name):
 try:
     jenkins = Jenkins(JENKINS_URL, JENKINS_USER, JENKINS_PASS)
 
-    job_name = sys.argv[1]
+    arg_obj = argparse.ArgumentParser()
+    arg_obj.add_argument("--job", type=str, required=True)
+    args = arg_obj.parse_args()
+
+    job_name = args.job
 
     get_all_jobs(jenkins)
     get_no_builds(jenkins, job_name)
