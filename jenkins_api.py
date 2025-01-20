@@ -11,9 +11,9 @@ JENKINS_URL = "http://localhost:8080"
 JENKINS_USER = "divya1804"
 JENKINS_PASS = "Divya1804"
 
-logging.basicConfig(filename='myapp.log', level=logging.INFO, filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
-# stream_handler = logging.StreamHandler()
-# logging.basicConfig(handlers=[stream_handler], level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# logging.basicConfig(filename='myapp.log', level=logging.INFO, filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
+stream_handler = logging.StreamHandler()
+logging.basicConfig(handlers=[stream_handler], level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def get_all_jobs(jenkins_obj):
     """
