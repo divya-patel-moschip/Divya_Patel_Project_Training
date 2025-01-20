@@ -9,7 +9,7 @@ pipeline {
                         source myvenv/bin/activate
                         pip install -r requirements.txt
                         python3 jenkins_api.py --job ${job_name}
-                        cat myapp.log
+                        // cat myapp.log
                         deactivate
                     """
                 }
