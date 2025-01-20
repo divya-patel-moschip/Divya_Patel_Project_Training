@@ -20,7 +20,7 @@ pipeline {
                     subject: "This is subject",
                     body: "This is body part",
                     attachLog: true,
-                    attachmentsPatterns: 'mylog.log, requirements.txt',
+                    attachmentsPattern: 'mylog.log, requirements.txt',
                     to: 'divya.patel@moschip.com'
                 )
             }
