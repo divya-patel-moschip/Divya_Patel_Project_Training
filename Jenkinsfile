@@ -14,6 +14,15 @@ pipeline {
                 }
             }
         }
+        stage('Send Email'){
+            steps{
+                emailext(
+                    subject: "This is subject",
+                    body: "This is body part",
+                    to: 'divya.patel@moschip.com'
+                )
+            }
+        }
     }
     post {
         always {
