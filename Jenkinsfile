@@ -29,6 +29,7 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'mylog.log,requirements.txt', fingerprint: true
+            junit 'build/reports/**/*.xml'
             cleanWs()
         }
     }
