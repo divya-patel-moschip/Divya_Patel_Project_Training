@@ -13,13 +13,6 @@ JENKINS_PASS = "Divya1804"
 
 logging.basicConfig(filename='myapp.log', level=logging.INFO, filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
 
-# logger = logging.getLogger("Jenkins")
-# handler = logging.FileHandler("log_file.log")
-# handler.setLevel(logging.DEBUG)
-# formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-# handler.setFormatter(formatter)
-# logger.addHandler(handler)
-
 def get_all_jobs(jenkins_obj):
     """
     This function will give the available jobs name from the localhost:8080
