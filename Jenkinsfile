@@ -17,7 +17,7 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: './mylog.log', './requirements.txt', fingerprint: true
+            archiveArtifacts artifacts: 'mylog.log,requirements.txt', fingerprint: true
         }
     }
 }
