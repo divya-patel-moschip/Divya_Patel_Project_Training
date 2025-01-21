@@ -21,7 +21,7 @@ pipeline {
                     subject: "This is subject",
                     body: "This is body part",
                     attachLog: true,
-                    attachmentsPattern: 'mylog.log, requirements.txt',
+                    attachmentsPattern: 'mylog.log, requirements.txt, report.txt',
                     to: 'divya.patel@moschip.com'
                 )
             }
@@ -29,8 +29,8 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: '**/report.xml, mylog.log, requirements.txt', fingerprint: true
-            junit '**/report.xml'
+            archiveArtifacts artifacts: 'report.xml, mylog.log, requirements.txt', fingerprint: true
+            junit testResults:'report.xml'
         }
     }
 }
