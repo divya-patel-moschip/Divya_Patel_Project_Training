@@ -39,7 +39,14 @@ from xml.dom import minidom
 # Create the root element
 root = ET.Element("testsuites")
 
-for i in range(3):
+LOG_ARRAY = []
+
+with open('mylog.log', 'r') as log_file:
+    for index, line in enumerate(log_file):
+        if index <=3:
+            LOG_ARRAY.append(f"{index}: {line.strip()}")
+
+for i in range(4):
     testsuite = ET.Element("testsuite", {
         "name": f"Suite-{i}",
         "tests": "1",
@@ -50,8 +57,8 @@ for i in range(3):
     })
 
     testcase = ET.Element("testcase", {
-        "name": f"Test-{i}",
-        "classname": "ClassName",
+        "name": LOG_ARRAY[i],
+        "classname": f"Suite-{i}",
         "time": "0.123"
     })
 
