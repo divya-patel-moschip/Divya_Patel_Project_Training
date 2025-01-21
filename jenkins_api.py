@@ -31,7 +31,7 @@ def get_all_jobs(jenkins_obj):
     jobs = jenkins_obj.get_jobs()
     job_list = [job[0] for job in jobs]
     logger.info("List of available jobs:")
-    logger.info("-------------------------")
+    # logger.info("-------------------------")
     for job in job_list:
         logger.info(job)
     logger.info('\n')
