@@ -18,8 +18,8 @@ pipeline {
         stage('Send Email'){
             steps{
                 emailext(
-                    subject: "${env.PROJECT_NAME} - Build # ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}!",
-                    body: "${env.PROJECT_NAME} - Build # ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}:\nCheck console output at ${env.BUILD_URL} to view the results.",
+                    subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER}!",
+                    body: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} :\nCheck console output at ${env.BUILD_URL} to view the results.",
                     attachLog: true,
                     attachmentsPattern: 'mylog.log, requirements.txt, report.txt',
                     to: 'divya.patel@moschip.com'
