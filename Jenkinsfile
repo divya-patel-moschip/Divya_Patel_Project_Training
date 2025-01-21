@@ -9,6 +9,7 @@ pipeline {
                         source myvenv/bin/activate
                         pip install -r requirements.txt
                         python3 jenkins_api.py --job ${job_name}
+                        python3 tree.py
                         deactivate
                     """
                 }
@@ -29,7 +30,7 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'mylog.log,requirements.txt', fingerprint: true
-            junit 'mylog.log'
+            junit 'report.xml'
             cleanWs()
         }
     }
