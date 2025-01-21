@@ -58,7 +58,7 @@ for i in range(4):
     else:
         testsuite = ET.Element("testsuite", {
             "name": f"Suite-{i}",
-            "tests": "1",
+            "tests": "0",
             "failures": "1",
             "errors": "0",
             "skipped": "0",
