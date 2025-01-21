@@ -36,7 +36,6 @@
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
-# Create the root element
 root = ET.Element("testsuites")
 
 LOG_ARRAY = []
@@ -65,14 +64,11 @@ for i in range(4):
     testsuite.append(testcase)
     root.append(testsuite)
 
-# Convert the ElementTree to a string
 rough_string = ET.tostring(root, 'utf-8')
 
-# Use minidom to pretty print the XML
 parsed = minidom.parseString(rough_string)
 pretty_xml = parsed.toprettyxml(indent="  ")
 
-# Write the formatted XML to a file
 with open('report.xml', 'w') as f:
     f.write(pretty_xml)
 
