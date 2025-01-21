@@ -46,14 +46,24 @@ with open('mylog.log', 'r') as log_file:
             LOG_ARRAY.append(f"{index}: {line.strip()}")
 
 for i in range(4):
-    testsuite = ET.Element("testsuite", {
-        "name": f"Suite-{i}",
-        "tests": "1",
-        "failures": "0",
-        "errors": "0",
-        "skipped": "0",
-        "time": "0.123"
-    })
+    if i%2 == 0:
+        testsuite = ET.Element("testsuite", {
+            "name": f"Suite-{i}",
+            "tests": "1",
+            "failures": "0",
+            "errors": "0",
+            "skipped": "0",
+            "time": "0.123"
+        })
+    else:
+        testsuite = ET.Element("testsuite", {
+            "name": f"Suite-{i}",
+            "tests": "1",
+            "failures": "1",
+            "errors": "0",
+            "skipped": "0",
+            "time": "0.123"
+        })
 
     testcase = ET.Element("testcase", {
         "name": LOG_ARRAY[i],
