@@ -76,22 +76,23 @@ def get_last_build_details(jenkins_obj:Jenkins, job_name):
     logger.info("=============================================================================")
     logger.info('\n')
 
-try:
-    jenkins = Jenkins(JENKINS_URL, JENKINS_USER, JENKINS_PASS)
+if __name__ == "__main__":
+    try:
+        jenkins = Jenkins(JENKINS_URL, JENKINS_USER, JENKINS_PASS)
 
-    arg_obj = argparse.ArgumentParser()
-    arg_obj.add_argument("--job", type=str, required=True)
-    args = arg_obj.parse_args()
+        arg_obj = argparse.ArgumentParser()
+        arg_obj.add_argument("--job", type=str, required=True)
+        args = arg_obj.parse_args()
 
-    job_name = args.job
+        job_name = args.job
 
-    get_all_jobs(jenkins)
-    get_no_builds(jenkins, job_name)
+        get_all_jobs(jenkins)
+        get_no_builds(jenkins, job_name)
 
-    # To change the name of the job from old_name to new_name.
-    # change_job_name(jenkins, "Run_Serial_Simulator", "Run_Serial_Simulator")
+        # To change the name of the job from old_name to new_name.
+        # change_job_name(jenkins, "Run_Serial_Simulator", "Run_Serial_Simulator")
 
-    get_all_jobs(jenkins)
-    get_last_build_details(jenkins, job_name)
-except ConnectionError as e:
-    logger.debug(f"Error :- {e}")
+        get_all_jobs(jenkins)
+        get_last_build_details(jenkins, job_name)
+    except ConnectionError as e:
+        logger.debug(f"Error :- {e}")
